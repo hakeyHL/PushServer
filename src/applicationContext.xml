@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<!-- 开启注解配置 -->
+	<context:component-scan base-package="cn.com.aladdinet" />
+	<bean id="BeanProxy"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<!-- 对类名以Service结尾的类进行代理 -->
+			<value>*Service</value>
+		</property>
+	</bean>
+
+</beans>
